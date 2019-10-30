@@ -69,7 +69,7 @@ class CommonHardWare extends HardWare {
   }
 }
 
-class MiWare extends HardWare {
+class MiHardWare extends HardWare {
   operateOrder() {
     console.log('用小米的方式去操作')
   }
