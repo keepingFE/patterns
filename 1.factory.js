@@ -5,8 +5,10 @@ function Factory(name, device, date) {
   this.date = date
 }
 
-// 抽象工厂模式。
-// 创建手机工厂类 抽象工厂不干活，具体工厂（ConcreteFactory）来干活
+/**
+ * 创建手机工厂类
+ * 抽象工厂（抽象类，它不能被用于生成具体实例） 每一个抽象工厂对应的这一类的产品，被称为“产品族”
+ */
 class MobileFactory {
   // 提供创建操作系统的接口
   createOS() {
@@ -18,7 +20,10 @@ class MobileFactory {
   }
 }
 
-//创建一个具体工厂，具体工厂继承自抽象工厂
+/**
+ * 创建一个具体工厂，具体工厂继承自抽象工厂
+ * 继承自抽象工厂、实现了抽象工厂里声明的那些方法，用于创建具体的产品的类
+ */
 class MiFactory extends MobileFactory {
   createAndroidOS() {
     // 创建安卓系统实例
@@ -34,14 +39,20 @@ class MiFactory extends MobileFactory {
   }
 }
 
-// 创建操作系统类
+/**
+ * 创建操作系统类
+ * 抽象产品（抽象类，它不能被用于生成具体实例）
+ */
 class OS {
   controlHardWare() {
     throw new Error('抽象产品方法不允许直接调用，你需要将我重写！')
   }
 }
 
-// 定义具体操作系统的具体产品类
+/**
+ * 定义具体操作系统里面的具体产品类
+ * 具体产品（用于生成产品族里的一个具体的产品所依赖的更细粒度的产品）
+ */
 class AndroidOS extends OS {
   controlHardWare() {
     console.log('用安卓的方式去启动系统')
