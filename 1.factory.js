@@ -21,15 +21,15 @@ class MobileFactory {
 //创建一个具体工厂，具体工厂继承自抽象工厂
 class MiFactory extends MobileFactory {
   createAndroidOS() {
-    // 提供安卓系统实例
+    // 创建安卓系统实例
     return new AndroidOS()
   }
   createIosOS() {
-    // 提供ios系统实例
+    // 创建ios系统实例
     return new IosOS()
   }
   createHardWare() {
-    // 提供创建硬件实例
+    // 创建通用硬件实例
     return new CommonHardWare()
   }
 }
@@ -75,13 +75,13 @@ class MiWare extends HardWare {
   }
 }
 
-//  小米手机
+// 创建我的手机实例
 const myMobile = new MiFactory()
 // 拥有操作系统
-const myOS = myMobile.createOS()
+const myOS = myMobile.createAndroidOS()
 // 拥有硬件
 const myHardWare = myMobile.createHardWare()
 // 启动系统
 myOS.controlHardWare()
-//唤醒硬件
+// 唤醒硬件
 myHardWare.operateOrder()
